@@ -1,0 +1,57 @@
+<!-- <ul class="list-inline">
+    <li class="list-inline-item text-right">
+        تعداد
+    </li>
+    <li class="list-inline-item">
+        <span class="btn btn-success" *ngIf="count>1 else elseBlock" (click)="minusCount()">
+            <i class="fas fa-minus"></i>
+
+        </span>
+        <ng-template #elseBlock><span class="btn btn-success" (click)="removeItem()"><i
+                    class="fas fa-trash-alt fa-sm"></i></span></ng-template>
+    </li>
+    <li class="list-inline-item">
+        <input type="number" disabled [(ngModel)]="count" class="form-control form-control-sm text-center">
+    </li>
+    <li class="list-inline-item">
+        <span class="btn btn-success" (click)="addCount()"><i class="fas fa-plus"></i></span>
+    </li>
+</ul> -->
+
+<!-- <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">
+        <span class="btn btn-success" *ngIf="count>1; else elseBlock" (click)="minusCount()"> <i
+                class="fas fa-minus"></i>
+        </span>
+        <ng-template #elseBlock><span class="btn btn-success"><i class="fas fa-trash-alt fa-sm"></i></span>
+        </ng-template>
+    </li>
+    <li class="list-group-item">
+        <input type="number" disabled [(ngModel)]="count" class="col-2 text-center">
+    </li>
+    <li class="list-group-item"><span class="btn btn-success" (click)="addCount()"><i class="fas fa-plus"></i></span>
+    </li>
+</ul> -->
+
+<!-- <div class="input-group input-group-sm mb-3">
+    <span class="btn btn-success" *ngIf="count>1 else elseBlock" (click)="minusCount()">
+        <i class="fas fa-minus"></i>
+    </span>
+    <ng-template #elseBlock><span class="btn btn-success" (click)="removeItem()"><i
+                class="fas fa-trash-alt fa-sm"></i></span></ng-template>
+    <input type="number" disabled [(ngModel)]="count" class="col-1 text-center">
+    <span class="btn " (click)="addCount()"><i class="fas fa-plus"></i></span>
+</div> -->
+
+<div class="text-center text-danger m-1">
+    <div class="row d-flex justify-content-center align-items-center border rounded py-1">
+        <span *ngIf="count>1; else elseBlockCount" class="col text-secondary ps-md-1 pe-md-0 bd-highlight"
+            (click)="minusCount()"><i class="fas fa-minus"></i></span>
+        <ng-template #elseBlockCount><span class="col text-secondary ps-md-1 pe-md-0 bd-highlight" (click)="removeItem()"><i
+                    class="fas fa-trash-alt"></i></span></ng-template>
+                    
+        <!-- <input class="form-control col text-center text-black-60" type="text" disabled [(ngModel)]="count"> -->
+        <span class="col text-secondary px-md-1 bd-highlight">{{count}}</span>
+        <span class="col text-secondary bd-highlight ps-md-0 pe-md-1" (click)="addCount()"><i class="fas fa-plus"></i></span>
+    </div>
+</div>

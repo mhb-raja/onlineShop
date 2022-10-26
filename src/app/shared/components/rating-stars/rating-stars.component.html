@@ -1,0 +1,19 @@
+<!-- <div (click)="onClick()" class="overflow-hidden" [style.width.px]="width">
+    <div style="width: 90px;">        
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+</div> -->
+
+<!-- <div class="container text-center text-warning"> -->
+    <div class="row d-flex justify-content-center align-items-center text-warning py-1">
+        <div class="col px-md-2">
+            <span *ngFor="let r of ratingArr; index as i" (click)="onClick(i)">                
+                <i [ngClass]="[rating >= i + 1?'fas fa-star':'far fa-star']"></i>
+            </span>
+        </div>
+    </div>
+<!-- </div> -->

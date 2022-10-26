@@ -1,0 +1,33 @@
+<div class="container-fluid bg-light py-3">
+    <div class="col-md-6 m-auto text-center">
+        <h4 class="h4">سبد خرید شما</h4>
+    </div>
+</div>
+<div class="row mx-2 my-md-5">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>        
+        <th scope="col">محصول</th>
+        <th scope="col"><i class="far fa-image"></i></th>
+        <th scope="col">قیمت</th>
+        <th scope="col">تعداد</th>
+        <th scope="col">جمع</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart$|async">
+        <th scope="row">1</th>
+        <td>{{item.title}}</td>
+        <td><img class="img-thumbnail" style="max-width: 60px; max-height: 90px;" [src]="imagePath + item.imageName" [alt]="item.imageName"></td>
+        <td>{{item.price}}</td>
+        <td>{{item.count}}</td>
+        <td>{{item.count * item.price}}</td>
+      </tr>
+      <tr>
+        <td colspan="6" class="fw-bolder fs-4">جمع کل: {{totalPrice}} تومان</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

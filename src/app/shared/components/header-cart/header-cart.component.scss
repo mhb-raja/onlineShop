@@ -1,0 +1,17 @@
+.my-direction-ltr {
+    direction: ltr;
+}
+.my-direction-rtl {
+    direction: rtl;
+}
+.my-dropdown-menu-width {
+    min-width: 260px;
+
+}
+.my-dropdown-menu {
+    // min-width: 260px;
+    float: right !important;
+    // left: initial !important;
+    // right: 0 !important;
+    text-align: start !important;
+}

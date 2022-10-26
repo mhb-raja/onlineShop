@@ -1,0 +1,137 @@
+<!-- Start Contact -->
+<div *ngIf="user$|async">
+    <div class="container-fluid bg-light py-3">
+        <div class="col-md-6 m-auto text-center">
+            <h4 class="h4">ویرایش اطلاعات </h4>
+        </div>
+    </div>
+    <!-- Start Register -->
+    <div class="container py-2">
+        <div class="row py-3">
+            <form *ngIf="myForm" [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()" class="col-md-10 m-auto">
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label>ایمیل</label>
+                        <input formControlName="email" #email type="email" class="form-control mt-1 ">
+                        <div *ngIf="myForm.controls.email.invalid && 
+                        (myForm.controls.email.dirty || myForm.controls.email.touched)" class="mb-2 text-danger fs-6">
+                            <div *ngIf="myForm.controls.email.errors?.required">
+                                وارد کردن ایمیل <strong>الزامی</strong> است
+                            </div>
+                            <div *ngIf="myForm.controls.email.errors?.maxlength">
+                                تعداد کاراکترها نمیتواند بیشتر از {{maxLenText}} باشد
+                            </div>
+                            <div *ngIf="myForm.controls.email.errors?.email">
+                                ایمیل وارد شده معتبر نمیباشد
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label>موبایل</label>
+                        <input formControlName="mobile" type="tel" class="form-control mt-1 align-left"
+                            placeholder="09...">
+                        <div *ngIf="myForm.controls.mobile.invalid && 
+                        (myForm.controls.mobile.dirty || myForm.controls.mobile.touched)"
+                            class="mb-2 text-danger fs-6">
+                            <div *ngIf="myForm.controls.mobile.errors?.required">
+                                لطفا شماره موبایل خود را وارد نمایید
+                            </div>
+                            <div *ngIf="myForm.controls.mobile.errors?.pattern">
+                                شماره وارد شده نامعتبر است.
+                            </div>
+                            <div *ngIf="myForm.controls.mobile.errors?.maxlength">
+                                تعداد کاراکترها نمیتواند بیشتر از {{ maxLenMobile }} باشد
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label>نام</label>
+                        <input formControlName="fname" type="text" class="form-control mt-1" required>
+                        <div *ngIf="myForm.controls.fname.invalid && 
+                        (myForm.controls.fname.dirty || myForm.controls.fname.touched)" class="mb-2 text-danger fs-6">
+                            <div *ngIf="myForm.controls.fname.errors?.required">
+                                لطفا نام خود را وارد نمایید
+                            </div>
+                            <div *ngIf="myForm.controls.fname.errors?.maxlength">
+                                تعداد کاراکترها نمیتواند بیشتر از {{maxLenText}} باشد
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label>نام خانوادگی</label>
+                        <input formControlName="lname" type="text" class="form-control mt-1" required>
+                        <div *ngIf="myForm.controls.lname.invalid && 
+                        (myForm.controls.lname.dirty || myForm.controls.lname.touched)" class="mb-2 text-danger fs-6">
+                            <div *ngIf="myForm.controls.lname.errors?.required">
+                                لطفا نام خانوادگی خود را وارد نمایید
+                            </div>
+                            <div *ngIf="myForm.controls.lname.errors?.maxlength">
+                                تعداد کاراکترها نمیتواند بیشتر از {{maxLenText}} باشد
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-1">
+                        <label>رمز عبور</label>
+                        <input formControlName="password" type="password" class="form-control mt-1" required>
+                        <div *ngIf="myForm.controls.password.invalid && 
+                        (myForm.controls.password.dirty || myForm.controls.password.touched)"
+                            class="mb-2 text-danger fs-6">
+                            <div *ngIf="myForm.controls.password.errors?.required">
+                                لطفا رمز عبور خود را وارد نمایید
+                            </div>
+                            <div *ngIf="myForm.controls.password.errors?.maxlength">
+                                تعداد کاراکترها نمیتواند بیشتر از {{maxLenText}} باشد
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label>تکرار رمز عبور</label>
+                        <input formControlName="confirmPassword" type="password" class="form-control mt-1" required>
+                        <div *ngIf="myForm.controls.confirmPassword.invalid && 
+                        (myForm.controls.confirmPassword.dirty || myForm.controls.confirmPassword.touched)"
+                            class="mb-2 text-danger fs-6">
+                            <div *ngIf="myForm.controls.confirmPassword.errors?.required">
+                                لطفا رمز عبور خود را مجددا وارد نمایید
+                            </div>
+                            <div *ngIf="myForm.controls.confirmPassword.errors?.maxlength">
+                                تعداد کاراکترها نمیتواند بیشتر از {{maxLenText}} باشد
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="myForm.errors?.misMatch && (myForm.touched || myForm.dirty)"
+                        class="mb-2 text-danger fs-6">
+                        تکرار رمز عبور اشتباه است
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mb-3">
+                        <label>نشانی</label>
+                        <textarea formControlName="address" class="form-control mt-1" required rows="3"></textarea>
+                        <div *ngIf="myForm.controls.address.invalid && 
+                        (myForm.controls.address.dirty || myForm.controls.address.touched)"
+                            class="mb-2 text-danger fs-6">
+                            <div *ngIf="myForm.controls.address.errors?.required">
+                                لطفا آدرس خود را وارد نمایید
+                            </div>
+                            <div *ngIf="myForm.controls.address.errors?.maxlength">
+                                تعداد کاراکترها نمیتواند بیشتر از {{maxLenAddress}} باشد
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-end mt-2">
+                        <button type="submit" [disabled]="!myForm.valid"
+                            class="btn btn-success btn-lg px-4">ثبت</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- End Contact -->

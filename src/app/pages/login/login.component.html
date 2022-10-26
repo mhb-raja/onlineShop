@@ -1,0 +1,51 @@
+<div class="container py-5">
+    <div class="row py-5">
+        <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()" class="col-md-9 m-auto">
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label>ایمیل</label>
+                    <input formControlName="email" type="email" class="form-control mt-1 " placeholder="Email">
+                    <div *ngIf="myForm.controls.email.invalid && 
+                        (myForm.controls.email.dirty || myForm.controls.email.touched)"
+                        class="my-invalid-feedback">
+                        <div *ngIf="myForm.controls.email.errors?.required">
+                            وارد کردن ایمیل <strong>الزامی</strong> است
+                        </div>
+                        <div *ngIf="myForm.controls.email.errors?.maxlength">
+                            تعداد کاراکترها نمیتواند بیشتر از {{maxLenText}} باشد
+                        </div>
+                        <div *ngIf="myForm.controls.email.errors?.email">
+                            ایمیل وارد شده معتبر نمیباشد
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label>رمز عبور</label>
+                    <input formControlName="password" type="password" class="form-control mt-1" id="name" name="name"
+                        placeholder="رمز عبور">
+                    <div *ngIf="myForm.controls.password.invalid && 
+                        (myForm.controls.password.dirty || myForm.controls.password.touched)"
+                        class="my-invalid-feedback">
+                        <div *ngIf="myForm.controls.password.errors?.required">
+                            لطفا رمز عبور خود را وارد نمایید
+                        </div>
+                        <div *ngIf="myForm.controls.password.errors?.maxlength">
+                            تعداد کاراکترها نمیتواند بیشتر از {{maxLenText}} باشد
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-end mt-2">
+                    <button type="submit" [disabled]="!myForm.valid"
+                        class="btn btn-success btn-lg px-md-4 ">ورود</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

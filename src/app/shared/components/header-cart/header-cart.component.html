@@ -1,0 +1,76 @@
+<div class="dropdown m-lg-2 fs-5 my-direction-ltr">
+    <a class="btn btn-light dropdown-toggle" href="#" role="button" id="userCart" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <i class="fa fa-fw fa-cart-arrow-down text-dark me-lg-1"></i>
+        <span *ngIf="(cart$|async)?.length>0"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{(cart$|async)?.length}}</span>
+    </a>
+    <div class="dropdown-menu px-md-2 pt=md-1 my-dropdown-menu my-dropdown-menu-width overflow-auto"
+        aria-labelledby="userCart">
+        <div *ngIf="(cart$|async)?.length===0">
+            <p>سبد خرید شما خالی است</p>
+            <i class="far fa-frown"></i>
+        </div>
+        <div *ngIf="(cart$|async)?.length>0">
+            <div class="row">
+                <div class="col col-11 mb-md-2">
+                    <a class="text-decoration-none fs-6" [routerLink]="['cart']">مشاهده سبد خرید
+                        <i class="fas fa-angle-double-right fa-xs"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div *ngFor="let item of cart$|async" class="row my-direction-rtl">
+                <div class="col col-4">
+                    <div><img class="img-thumbnail" [src]="imagePath + item.imageName"
+                            style="width: 40px; height: 60px;"></div>
+                </div>
+                <div class="col col-8 fs-6">
+                    <div class="fw-bold">
+                        {{item.title}}
+                    </div>
+                    <div class="fs-6">{{item.price |number}} تومان</div>
+                    <div class="fs-6 fw-light px-2">
+                        <!-- تعداد: {{item.count}} -->
+                        <app-count-changer [count]="item.count" (removeItemEvent)="removeItem(item.id)">
+                        </app-count-changer>
+                        <!-- <button class="btn btn-warning btn-sm" (click)="removeItem(item.id)">
+                            <i class="fas fa-trash-alt fa-sm"></i>
+                        </button> -->
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+            </div>
+            <div class="row px-2">
+                قابل پرداخت: <div class="fw-bold">{{totalPrice|number}} تومان</div>
+                <button class="btn btn-danger mt-3">پرداخت</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="dropdown-menu p-4" id="userCart" style="max-width: 200px;"> -->
+
+<!-- <div *ngFor="let item of cart$|async" class="row py-1 border-bottom">
+        <div class="col col-4">
+            <div><img [src]="imagePath + item.imageName" style="width: 64px; height: 96px;"></div>
+            <div>{{item.count}}</div>
+        </div>
+        <div class="col col-8">
+            <div>
+                {{item.title}}
+            </div>
+            <div>{{item.price}}</div>
+        </div>
+    </div>
+
+    
+    <div class="mb-3">
+        <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button> -->
+<!-- </div> -->
