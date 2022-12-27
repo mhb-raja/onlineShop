@@ -45,6 +45,10 @@ export class ProductService {
         params = params.append('startPrice', filter.startPrice.toString());
       if (filter.endPrice != null)
         params = params.append('endPrice', filter.endPrice.toString());
+      if(filter.availableOnly)      
+        params=params.append('availableOnly','true');
+      console.log('service params',params);
+      
     }
     return params;
   }

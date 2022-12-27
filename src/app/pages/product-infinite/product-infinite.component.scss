@@ -1,0 +1,89 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@media (min-width: 1024px) {
+  .filter-sidebar {
+    min-width: 250px;
+    width: 270px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .filter-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+}
+
+
+// We need to use ::ng-deep to overcome view encapsulation
+::ng-deep {
+  .price-slider {
+    .ngx-slider {
+      .ngx-slider-bar {
+        background: #ffe4d1;
+        height: 2px;
+      }
+      .ngx-slider-selection {
+        background: orange;
+      }
+      .ngx-slider-pointer {
+        width: 8px;
+        height: 16px;
+        top: auto; /* to remove the default positioning */
+        bottom: 0;
+        background-color: rgb(83, 67, 67);
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      .ngx-slider-bubble {
+        bottom: 14px;
+      }
+      .ngx-slider-limit {
+        font-weight: bold;
+        color: orange;
+      }
+      .ngx-slider-tick {
+        width: 1px;
+        height: 10px;
+        margin-left: 4px;
+        border-radius: 0;
+        background: #ffe4d1;
+        top: -1px;
+      }
+      .ngx-slider-tick.ngx-slider-selected{
+        background: orange;
+      }
+    }
+  }
+}
+
+/* The animation code */
+@keyframes example {
+  from {border-color: red;}
+  to {border-color: yellow;}
+}
+
+/* The element to apply the animation to */
+.dwddiv {
+  
+  border-color: red;
+  animation-name: example;
+  animation-duration: 1s;
+}

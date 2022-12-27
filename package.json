@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-slider/ngx-slider": "^2.0.4",
     "@angular/animations": "~13.3.11",
     "@angular/common": "~13.3.11",
     "@angular/compiler": "~13.3.11",
@@ -20,8 +21,10 @@
     "@angular/router": "~13.3.11",
     "@sweetalert2/ngx-sweetalert2": "^10.0.0",
     "@types/jquery": "^3.5.13",
+    "jalali-moment": "^3.3.11",
     "jquery": "^3.6.1",
     "ngx-cookie-service": "^13.1.2",
+    "ngx-infinite-scroll": "^15.0.0",
     "ngx-loading": "^8.0.0",
     "rxjs": "~6.6.0",
     "slick-carousel": "^1.8.1",

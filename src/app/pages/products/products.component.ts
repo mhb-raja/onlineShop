@@ -25,7 +25,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
     startPrice: 0,
     endPrice: 0,
     categories: [],
-    orderBy: null
+    orderBy: null,
+    maxPrice: 0,
+    availableOnly: false
   };
 
   loading = true;//ngx-loading 

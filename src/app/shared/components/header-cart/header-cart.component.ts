@@ -15,6 +15,7 @@ export class HeaderCartComponent implements OnInit, OnDestroy {
   // cart: ShoppingCartItemDTO[];
   cart$: Observable<ShoppingCartItemDTO[]>;
   totalPrice = 0;
+  totalCount=0;
   imagePath = ImagePath;
 
   constructor(private orderService: OrderService) { }
@@ -37,9 +38,11 @@ export class HeaderCartComponent implements OnInit, OnDestroy {
 
   calculateTotalPrice(list: ShoppingCartItemDTO[]) {
     this.totalPrice = 0;
+    this.totalCount=0;
     if (list)
       for (const cartItem of list) {
         this.totalPrice += cartItem.price * cartItem.count;
+        this.totalCount+=cartItem.count;
       }
   }
 

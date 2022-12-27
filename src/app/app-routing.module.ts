@@ -11,6 +11,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { Products2Component } from './pages/products2/products2.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserAuthGuard } from './Utilities/user-auth.guard';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'products2', component: Products2Component },
   { path: 'products/:id', component: ProductDetailComponent },  
   { path: 'products/:id/:name', component: ProductDetailComponent },  
   {

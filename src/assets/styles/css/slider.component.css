@@ -1,0 +1,23 @@
+#carouselExampleDark.carousel {
+  height: 60vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#carouselExampleDark.carousel .carousel-inner {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0.8;
+      -ms-flex-positive: 0.8;
+          flex-grow: 0.8;
+}
+
+#carouselExampleDark.carousel .carousel-inner .carousel-item {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+/*# sourceMappingURL=slider.component.css.map */

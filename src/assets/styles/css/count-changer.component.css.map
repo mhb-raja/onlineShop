@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../../app/shared/components/count-changer/count-changer.component.scss"
+    ],
+    "names": [],
+    "file": "count-changer.component.css"
+}

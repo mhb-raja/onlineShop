@@ -24,7 +24,8 @@ export class AppComponent implements OnInit, OnDestroy {
       switchMap(user => {
         if (user)
           return this.orderService.getUserShoppingCart();// this.getcart();
-        return of(this.lsService.get('cart'));//get cart from local-storage //of(null);
+        // return of(this.lsService.get('cart'));//get cart from local-storage 
+        return of(null);
       }),
       tap(res => this.orderService._setShoppingCart(res)),
       takeUntil(componentDestroyed(this))

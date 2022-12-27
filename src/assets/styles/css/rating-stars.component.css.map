@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../../app/shared/components/rating-stars/rating-stars.component.scss"
+    ],
+    "names": [],
+    "file": "rating-stars.component.css"
+}

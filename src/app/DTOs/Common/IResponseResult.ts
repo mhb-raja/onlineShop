@@ -10,5 +10,5 @@ export enum Status {
     NotFound = 3,
     UnAuthorized = 4,
     AccessDenied = 5,
-    // SomethingWrong = 6
+    UnAuthenticated = 6
 }

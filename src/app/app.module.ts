@@ -34,6 +34,10 @@ import {ProductService} from './services/product.service';
 import { CountChangerComponent } from './shared/components/count-changer/count-changer.component';
 import { RatingStarsComponent } from './shared/components/rating-stars/rating-stars.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { Products2Component } from './pages/products2/products2.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { ProductInfiniteComponent } from './pages/product-infinite/product-infinite.component';
+//import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     AccountEditComponent,
     CountChangerComponent,
     RatingStarsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    Products2Component,
+    ProductInfiniteComponent
   ],
   imports: [
     BrowserModule,    
@@ -69,6 +75,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NgxLoadingModule.forRoot({
       fullScreenBackdrop:true, 
     }),
+    NgxSliderModule,
+    //InfiniteScrollModule,
     AppRoutingModule,
   ],
   providers: [

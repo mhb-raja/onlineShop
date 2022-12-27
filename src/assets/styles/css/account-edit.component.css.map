@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../../app/pages/account/account-edit/account-edit.component.scss"
+    ],
+    "names": [],
+    "file": "account-edit.component.css"
+}

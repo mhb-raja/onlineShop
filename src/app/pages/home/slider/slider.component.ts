@@ -20,7 +20,7 @@ import { SliderImagePath } from 'src/app/Utilities/PathTools';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  public sliders$; //: Observable<SliderMiniDTO[]>; //= [];
+  public sliders$: Observable<SliderMiniDTO[]>= null;
   imagePath = SliderImagePath;
 
   constructor(private sliderService: SliderService) {}

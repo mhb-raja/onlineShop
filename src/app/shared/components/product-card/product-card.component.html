@@ -1,57 +1,70 @@
-<div *ngIf="product" class="card product-wap rounded-0">
+<!-- <div *ngIf="product" class="card product-wap rounded-0">
     <div class="card rounded-0">
-        <!-- <img class="card-img rounded-0 img-fluid mw-100 mh-100" [src]="imagePath + product.base64Image" alt="product.productName"> -->
+        <img class="card-img rounded-0 img-fluid mw-100 mh-100" [src]="imagePath + product.base64Image" alt="product.productName">
         <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
             <ul class="list-unstyled">
                 <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a>
                 </li>
-                <li><a class="btn btn-success text-white mt-2" [routerLink]="['/products',product.id,product.urlCodeFa]"><i
-                            class="far fa-eye"></i></a></li>
+                <li><a class="btn btn-success text-white mt-2" [routerLink]="['/products',product.id,product.urlCodeFa]">
+                    <i class="far fa-eye"></i></a></li>
                 <li><a class="btn btn-success text-white mt-2"  click="addToCart()"><i
                             class="fas fa-cart-plus"></i></a></li>
             </ul>
         </div>
     </div>
     <div class="card-body">
-        <a [routerLink]="['/products',product.id,product.urlCodeFa]" class="h3 text-decoration-none">{{product.productName}}</a>
+        <h5 class="card-title">
+        <a [routerLink]="['/products',product.id,product.urlCodeFa]" class="h3 text-decoration-none">{{product.productName}}</a></h5>
         <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
             <li>M/L/X/XL</li>
-            <li class="pt-2">
-                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+            <li class="pt-2 d-flex">
+                <span class="product-color-dot color-dot-red   ml-1"></span>
+                <span class="product-color-dot color-dot-blue rounded-circle ml-1"></span>
+                <span class="product-color-dot color-dot-black rounded-circle ml-1"></span>
+                <span class="product-color-dot color-dot-light  rounded-circle ml-1"></span>
+                <span class="product-color-dot color-dot-green rounded-circle ml-1"></span>
             </li>
         </ul>
-        <ul class="list-unstyled d-flex justify-content-center mb-1">
-            <li>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-muted fa fa-star"></i>
-                <i class="text-muted fa fa-star"></i>
-            </li>
-        </ul>
-        <p class="text-center mb-0">{{product.price}} تومان</p>
+        <p class="card-text text-center mb-0">{{product.price}} تومان</p>
     </div>
+</div> -->
+
+<!-- <div class="row row-cols-1 row-cols-md-3 g-4"> -->
+<div *ngIf="product" class="card h-100">
+  <a [routerLink]="['/products', product.id, product.urlCodeFa]" class="text-reset text-decoration-none"  >
+    <!-- <div class="card h-100"> -->
+
+      <!-- row: sale options -->
+      <div class="d-flex w-100">
+        <br>
+      </div>
+
+      <!-- row: image & available colors -->
+      <div class="d-flex position-relative">
+
+        <!-- col: image -->
+        <div class="d-flex mx-auto w-80" >
+          <img
+            [src]="imagePath + product.base64Image"
+            alt="product.productName"
+            class="card-img-top w-100"
+            style="width: 240px;height: 240px;"
+          />
+        </div>
+
+        <!-- col: availavle colors -->
+        <div class="d-flex flex-column position-absolute end-0 top-0 gap-1 p-1 pe-2">
+          <span class="rounded-circle d-inline-block mb-1" style="width: 8px; height: 8px; background-color:red ;"></span>
+          <span class="rounded-circle d-inline-block " style="width: 8px; height: 8px; background-color:yellow ;"></span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title">{{ product.productName }}</h5>
+        <p class="card-text">{{commaSeparate(product.price)}} تومان</p>
+      </div>
+    <!-- </div> -->
+  </a>
 </div>
 
-<div *ngIf="product" class="card">
-    <img [src]="imagePath + product.base64Image" alt="product.productName" class="card-img-top" >
-    <div class="card-img-overlay align-items-center justify-content-center">
-        <ul class="list-unstyled">
-            <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a>
-            </li>
-            <li><a class="btn btn-success text-white mt-2" [routerLink]="['/products',product.id,product.urlCodeFa]"><i
-                        class="far fa-eye"></i></a></li>
-            <li><a class="btn btn-success text-white mt-2"  click="addToCart()"><i
-                        class="fas fa-cart-plus"></i></a></li>
-        </ul>
-      </div>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
+<!-- </div> -->

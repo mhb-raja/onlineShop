@@ -63,8 +63,9 @@ body, ul, li, p, a, label, input, div {
   border-color: #56ae6c !important;
 }
 .pagination .page-link:hover {color: #000;}
-.pagination .page-link:hover, .pagination .page-link.active {
+.pagination .page-link:hover, .pagination .page-link.active, .pagination .page-item.active {
   background-color: #69bb7e;
+  border-color: #59ab6e;
   color: #fff;
 }
 /* Nav */

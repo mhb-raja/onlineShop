@@ -31,14 +31,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/bootstrap.rtl.min.css",
+              "src/assets/css/bootstrap-reboot.rtl.css",
+              "src/assets/css/bootstrap.rtl.css",
+              "src/assets/css/fontawesome.min.css",
               "src/assets/css/templatemo.css",
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/js/bootstrap.bundle.min.js",
               "node_modules/jquery/dist/jquery.js",
               "src/assets/js/jquery-migrate-1.4.1.js",
+              "src/assets/js/bootstrap.bundle.js",              
               "src/assets/js/templatemo.js",
               "src/assets/js/custom.js"
             ]

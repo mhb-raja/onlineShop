@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Vazir";
+  src: url("assets/fonts/vazir.eot") format("eot"), url("assets/fonts/vazir.ttf") format("truetype"), url("assets/fonts/vazir.woff") format("woff"), url("assets/fonts/vazir.woff2") format("woff2");
+}
+
+body {
+  font-family: 'Vazir' !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */

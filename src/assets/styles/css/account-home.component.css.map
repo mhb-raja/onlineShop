@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../../app/pages/account/account-home/account-home.component.scss"
+    ],
+    "names": [],
+    "file": "account-home.component.css"
+}

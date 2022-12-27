@@ -1,6 +1,9 @@
-<div class="dropdown m-lg-2 fs-5 my-direction-ltr">
+
+
+
+<div class="dropdown m-lg-2 fs-5 dropstart">
     <a class="btn btn-light dropdown-toggle" href="#" role="button" id="userCart" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    data-bs-auto-close="outside" aria-expanded="false">
         <i class="fa fa-fw fa-cart-arrow-down text-dark me-lg-1"></i>
         <span *ngIf="(cart$|async)?.length>0"
             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -14,9 +17,10 @@
         </div>
         <div *ngIf="(cart$|async)?.length>0">
             <div class="row">
-                <div class="col col-11 mb-md-2">
+                <div class="col col-11 mb-md-2 d-flex">
+                    <span>{{totalCount}} کالا</span>
                     <a class="text-decoration-none fs-6" [routerLink]="['cart']">مشاهده سبد خرید
-                        <i class="fas fa-angle-double-right fa-xs"></i>
+                        <i class="fas fa-angle-double-left fa-xs"></i>
                     </a>
                 </div>
             </div>

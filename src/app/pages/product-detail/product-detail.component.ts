@@ -23,6 +23,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from 'src/app/services/order.service';
 import { ProductService } from 'src/app/services/product.service';
 import { componentDestroyed } from 'src/app/shared/functions/componentDestroyed';
+import { helper } from 'src/app/Utilities/Helper';
 import { ImageGalleryPath, ImagePath } from 'src/app/Utilities/PathTools';
 
 declare function multiItemCarousel(minPerSlide: number): any;
@@ -55,6 +56,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   added = false;
 
   visibleItemsInCarousel = 3;
+
+persianDate=helper.getPersianDate;
+
 
   constructor(
     private productService: ProductService,
@@ -262,5 +266,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     } else {
       this.router.navigate(['/login']);
     }
+  }
+
+  getPersianDate(date:Date){
+
   }
 }

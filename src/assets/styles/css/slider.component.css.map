@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,oBAAoB,AAAA,SAAS,CAAA;EACzB,MAAM,EAAE,IAAI;EACZ,QAAQ,EAAE,MAAM;EAChB,OAAO,EAAE,IAAI;CAehB;;AAlBD,AAKI,oBALgB,AAAA,SAAS,CAKzB,eAAe,CAAA;EACX,KAAK,EAAE,IAAI;EAGX,OAAO,EAAE,IAAI;EAEb,SAAS,EAAC,GAAG;CAMhB;;AAjBL,AAaQ,oBAbY,AAAA,SAAS,CAKzB,eAAe,CAQX,cAAc,CAAA;EACV,WAAW,EAAC,CAAC;CAEhB",
+    "sources": [
+        "../../../app/pages/home/slider/slider.component.scss"
+    ],
+    "names": [],
+    "file": "slider.component.css"
+}

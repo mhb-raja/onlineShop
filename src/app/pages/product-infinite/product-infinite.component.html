@@ -1,0 +1,157 @@
+<!-- Start Content -->
+
+
+<div class="d-flex flex-row w-100 px-2 py-3 ">
+    <!-- sidebar: filters -->
+    <div class="d-flex filter-sidebar">
+
+        <div class="d-flex flex-column border border-2 rounded-2 w-100">
+            <div class="d-flex justify-content-between py-4 px-4">
+                <h5 >فیلترها</h5>
+                <div class="btn btn-outline-secondary btn-sm" (click)="clearFilters()">حذف فیلتر ها</div>
+            </div>
+
+            <!-- categories -->
+            <div class="w-full px-4 ">
+                <div class="border-bottom border-1">
+                    <div class="d-flex flex-column" role="button" data-bs-toggle="collapse" data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
+                        <div class="d-flex justify-content-between py-3 ">
+                            <div>دسته بندی</div>
+                            <div><i class="fas fa-caret-down"></i></div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseCategory">
+                        <div *ngFor="let cat of categories$| async" class="w-full">
+                            <div class="py-2 border-bottom ">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [value]="cat.id" [id]="'cat_' + cat.id"
+                                        (change)="filterCategories($event)" [checked]="myDatasource.categories?.indexOf(cat.id) >= 0">
+                                    <label class="form-check-label" [for]="'cat_' + cat.id">
+                                      {{cat.title}}
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <!-- price range -->
+            <div class="w-full px-4 ">
+                <div class="border-bottom border-1">
+                    <div class="d-flex flex-column" role="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                        <div class="d-flex justify-content-between py-3 ">
+                            <div>محدوده قیمت</div>
+                            <div><i class="fas fa-caret-down"></i></div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapsePrice">
+                        <div class="py-2  ">
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text">از</span>
+                                <input type="number" class="form-control" aria-label="price range min"
+                                    [(ngModel)]="myDatasource.startPrice"
+                                    placeholder="حداقل قیمت"  min="0">
+                                <span class="input-group-text">تومان</span>
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text">از</span>
+                                <input type="number" class="form-control" aria-label="price range max"
+                                [(ngModel)]="myDatasource.endPrice"  placeholder="حداکثر قیمت"  min="0">
+                                <span class="input-group-text">تومان</span>
+                            </div>
+                            <div class="price-slider">
+                                <ngx-slider [(value)]="myDatasource.startPrice" [(highValue)]="myDatasource.endPrice" [options]="priceRangeOptions"
+                                 (userChangeEnd)="onUserChangeEnd($event)" ></ngx-slider>                            
+                            </div>
+                        </div>                        
+                    </div>
+                </div>                
+            </div>
+
+            <!-- only available -->
+            <div class="w-full px-4 ">
+                <div class="border-bottom border-1">
+                    <div class="d-flex flex-column" role="button" >
+                        <div class="d-flex justify-content-between py-3 ">
+                            <div>فقط کالاهای موجود</div>
+                            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="availlableSwitch" 
+                                (change)="filter()" [(ngModel)]="myDatasource.availableOnly"></div>
+                        </div>
+                    </div>                    
+                    <!-- <div class="form-check form-switch form-check-reverse">
+                        <input class="form-check-input" type="checkbox" role="switch" id="availlableSwitch" 
+                            (change)="filter()" [(ngModel)]="myDatasource.availableOnly">
+                        <label class="form-check-label" for="availlableSwitch">فقط کالاهای موجود</label>
+                    </div> -->
+                                            
+                      
+                </div>                
+            </div>
+
+        </div>
+    </div>
+    <!-- left panel: content -->
+    <div *ngIf="myDatasource.items" class="flex-column ps-3 w-100">
+
+        <!-- row: search & page-size -->
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-fill mb-1">
+                <input type="text" class="form-control" placeholder="جستجو ..." [(ngModel)]="myDatasource.text"
+                            (input)="filter()">
+            </div>
+            <div class="d-flex ps-2"> 
+                <label class="d-inline  fs-6">تعداد آیتم در صفحه</label>                       
+                <select [(ngModel)]="myDatasource.pageSize" class="form-control d-inline" (change)="changePageSize()" >                            
+                    <option value="6">6</option>
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- row: sorting & result-count -->
+        <div class="d-flex fs-5">
+            <div class="p-2 bd-highlight">
+                <i class="fas fa-sort-amount-down-alt"></i>
+                مرتب سازی:
+            </div>
+
+            <div class="p-2 cursor-pointer" (click)="changeSortOrder(orderBy.PriceAsc)">ارزان ترین</div>
+            <div class="p-2 cursor-pointer" (click)="changeSortOrder(orderBy.PriceDesc)">گران ترین</div>
+            <div class="p-2 cursor-pointer" (click)="changeSortOrder(orderBy.CreateDateDesc)">جدید ترین</div>
+            <div class="p-2 cursor-pointer" (click)="changeSortOrder(orderBy.CreateDateAsc)">قدیمی ترین</div>
+            <div class="p-2 cursor-pointer" (click)="changeSortOrder(orderBy.IsSpecial)">فروش ویژه</div>
+        </div>
+
+        <!-- row: items  -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-3">
+            <app-product-card *ngFor="let product of myDatasource.items" class="col" [product]="product"></app-product-card>                    
+        </div>
+
+        <!-- row: pagination -->
+
+        <nav aria-label="Page navigation ">
+            <ul class="pagination pagination-lg justify-content-end">
+
+              <li [ngClass]="['page-item', pages[0] == myDatasource.pageIndex ? 'disabled' : '']" >
+                <a class="page-link text-dark shadow-sm" (click)="previousPage()">قبلی</a>
+              </li>
+
+              <li *ngFor="let page of pages" 
+                [ngClass]="['page-item', page == myDatasource.pageIndex ? 'active' : '']"
+                [attr.aria-current]="page == myDatasource.pageIndex?'page':''">
+                <a class="page-link text-dark shadow-lg" [ngClass]="[page == myDatasource.pageIndex ? 'active' : '']" (click)="setPage(page)">{{page+1}}</a></li>              
+                              
+              <li [ngClass]="['page-item', pages[pages.length-1] == myDatasource.pageIndex ? 'disabled' : '']">
+                <a class="page-link text-dark shadow-sm" (click)="nextPage()">بعدی</a>
+              </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+<!-- End Content -->
+<ngx-loading [show]="loading"></ngx-loading>
+

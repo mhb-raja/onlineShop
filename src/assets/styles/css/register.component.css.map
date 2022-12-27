@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EAER,SAAS,EAAE,GAAG;CACjB;;AAED,AAAA,KAAK,AAAA,WAAW,AAAA,WAAW,CAAC;EACxB,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,OAAkB;EACpC,UAAU,EAAE,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,OAAiB;CAC5C;;AAED,AAAA,oBAAoB,CAAC;EAEjB,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,OAAO;EACnB,SAAS,EAAC,MAAM;EAChB,KAAK,EAAE,OAAO;CACjB;;AAED,AAAA,MAAM,CAAC,QAAQ,CAAA;EACX,gBAAgB,EAAE,OAAO;CAC5B",
+    "sources": [
+        "../../../app/pages/register/register.component.scss"
+    ],
+    "names": [],
+    "file": "register.component.css"
+}
